@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct ContentView: View {
     
-    @AppStorage("num") var num = 0
+    //suiteName 参数表示 UserDefaults 存储区的名称。在应用程序如 Widget 扩展之间共享数据
+    @AppStorage("num", store: UserDefaults(suiteName: "group.com.jjh.WidgetDemo")) var num = 0
 //    @State var num = 0
     
     let lineWidth: CGFloat = 26
@@ -26,6 +28,7 @@ struct ContentView: View {
                         .trim(from: 0.0, to: CGFloat(num) / 10)
                         .stroke(.blue, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
                         .rotationEffect(.degrees(-90))
+                        .animation(.spring, value: num)
                     VStack {
                         Text(String(num))
                             .font(.system(size: 60, weight: .heavy, design: .serif))
@@ -41,6 +44,8 @@ struct ContentView: View {
                 HStack {
                     Button {
                         if num >= 0 {
+                            //手动更新widget
+                            WidgetCenter.shared.reloadTimelines(ofKind: "WidgetExtension")
                             withAnimation(.spring()) {
                                 num -= 1
                             }
@@ -65,6 +70,8 @@ struct ContentView: View {
                     Spacer()
                     Button {
                         if num <= 10 {
+                            //手动更新widget
+                            WidgetCenter.shared.reloadTimelines(ofKind: "WidgetExtension")
                             num += 1
                         } else {
                             return
