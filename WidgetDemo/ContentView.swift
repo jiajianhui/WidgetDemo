@@ -19,7 +19,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Color.primary.ignoresSafeArea()
-            VStack(spacing: 60) {
+            VStack(spacing: 90) {
                 ZStack {
                     Circle()
                         .stroke(.white.opacity(0.1), lineWidth: lineWidth)
@@ -53,9 +53,9 @@ struct ContentView: View {
                         }
                         
                     } label: {
-                        RoundedRectangle(cornerRadius: 25.0)
-                            .fill(Color.blue.opacity(0.1))
-                            .frame(width: 80, height: 50)
+                        RoundedRectangle(cornerRadius: 50)
+                            .fill(Color.white.opacity(0.1))
+                            .frame(width: 90, height: 60)
                             .overlay {
                                 Image(systemName: "minus")
                                     .resizable()
@@ -77,9 +77,9 @@ struct ContentView: View {
                             return
                         }
                     } label: {
-                        RoundedRectangle(cornerRadius: 25.0)
-                            .fill(Color.blue.opacity(0.1))
-                            .frame(width: 80, height: 50)
+                        RoundedRectangle(cornerRadius: 50)
+                            .fill(Color.white.opacity(0.1))
+                            .frame(width: 90, height: 60)
                             .overlay {
                                 Image(systemName: "plus")
                                     .resizable()

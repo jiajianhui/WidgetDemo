@@ -12,13 +12,17 @@ struct DataService {
     @AppStorage("num", store: UserDefaults(suiteName: "group.com.jjh.WidgetDemo")) var num = 0
     
     func add() {
-        num += 1
+        if num < 10 {
+            num += 1
+        }
     }
     func sub() {
-        num -= 1
+        if num >= 0 {
+            num -= 1
+        }
     }
     
-    func progress() -> Int {
+    func finalResult() -> Int {
         return num
     }
 }
