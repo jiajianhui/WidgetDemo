@@ -9,7 +9,7 @@ import SwiftUI
 import WidgetKit
 
 struct ContentView: View {
-    
+    // test-1
     //suiteName 参数表示 UserDefaults 存储区的名称。在应用程序如 Widget 扩展之间共享数据
     @AppStorage("num", store: UserDefaults(suiteName: "group.com.jjh.WidgetDemo")) var num = 0
 //    @State var num = 0
